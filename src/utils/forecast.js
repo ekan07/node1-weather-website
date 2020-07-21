@@ -15,13 +15,11 @@ const forecast = (latArg, longArg, callback) => {
       callback("Unable to find location", undefined);
     } else {
       callback(
-        undefined,
-        body.daily[0].weather[0].description +
-          ". It is currently " +
-          body.current.temp +
-          " degrees celsius out there. There is going to be " +
-          body.current.weather[0].description +
-          "."
+        undefined, {
+          dailyForecast: body.daily[0].weather[0].description,
+          temp: "It is currently " + body.current.temp + " degrees celsius out there. There is going to be " + body.current.weather[0].description +"." 
+        }
+       
       );
     }
   });
