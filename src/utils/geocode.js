@@ -17,6 +17,7 @@ const geocode = (address, callback) => {
         longitude: res.data.features[0].center[0],
         location: res.data.features[0].place_name,
       });
+      
     })
     .catch(error => {
       callback("Unable to connect to location services!", undefined);

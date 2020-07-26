@@ -1,3 +1,4 @@
+const geocode = require("./geocode");
 const axios = require("axios");
 
 const forecast = (latArg, longArg, callback) => {
@@ -13,8 +14,11 @@ const forecast = (latArg, longArg, callback) => {
         }
 
         callback(undefined, {
-          dailyForecast: res.data.daily[0].weather[0].description,
-          temp: "It is currently " + res.data.current.temp + " degrees celsius out there. There is going to be " + res.data.current.weather[0].description +"." 
+          
+          currentForecast: " There is going to be " + res.data.current.weather[0].description +".",
+          temp: " It is currently " + res.data.current.temp + " degrees celsius out there. The high today is " +
+          res.data.daily[0].temp.max + " with a low of " + res.data.daily[0].temp.min,
+          
         });
 
       })
@@ -23,7 +27,5 @@ const forecast = (latArg, longArg, callback) => {
         callback("Unable to connect to weather services", undefined);
       })
 }
-
-
 
 module.exports = forecast;
