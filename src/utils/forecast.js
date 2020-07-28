@@ -14,7 +14,7 @@ const forecast = (latArg, longArg, callback) => {
 
         callback(undefined, {
           
-          currentForecast: " There is going to be " + res.data.current.weather[0].description +".",
+          currentForecast: res.data.current.weather[0].description +".",
           temp: " It is currently " + res.data.current.temp + " degrees celsius out there. The high today is " +
           res.data.daily[0].temp.max + " with a low of " + res.data.daily[0].temp.min,
           
