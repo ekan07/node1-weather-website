@@ -1,4 +1,3 @@
-const geocode = require("./geocode");
 const axios = require("axios");
 
 const forecast = (latArg, longArg, callback) => {
